@@ -1,0 +1,20 @@
+{
+  "defaultSeverity": "error",
+
+  "extends": [
+    "tslint:recommended"
+  ],
+
+  "jsRules": {},
+
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "semicolon": true,
+    "max-line-length": [false],
+    "no-empty-interface": false,
+    "trailing-comma": false,
+    "no-bitwise": false
+  },
+
+  "rulesDirectory": []
+}

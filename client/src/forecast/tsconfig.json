@@ -1,0 +1,35 @@
+{
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "useTranspileModule": true,
+    "doTypeCheck": true,
+    "forkChecker": true
+  },
+  "compilerOptions": {
+    "outDir": "target/",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "application/*": [
+        "application/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
