@@ -1,3 +1,3 @@
 import {AppConfig} from "application/config/AppConfig";
 
-export const appcConfig = new AppConfig();
+export const appConfig = new AppConfig();

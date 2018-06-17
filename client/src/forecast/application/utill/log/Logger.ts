@@ -16,7 +16,7 @@ export class Logger {
         year: "2-digit"
     };
 
-    public static readonly FORMAT: string = "[%date% # %type%]: %message% ";
+    public static readonly FORMAT: string = "[%date% # %type%]: <%message%>";
 
     private static formatMessage(type: string, message: string): string {
         return Logger.FORMAT

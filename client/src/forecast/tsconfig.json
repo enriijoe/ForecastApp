@@ -1,9 +1,5 @@
 {
   "awesomeTypescriptLoaderOptions": {
-    "useWebpackText": true,
-    "useTranspileModule": true,
-    "doTypeCheck": true,
-    "forkChecker": true
   },
   "compilerOptions": {
     "outDir": "target/",
