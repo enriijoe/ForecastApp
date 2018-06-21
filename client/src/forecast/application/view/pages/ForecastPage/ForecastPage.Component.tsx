@@ -11,7 +11,7 @@ import {RingLoader} from "react-spinners";
 import {forecastApiManager} from "application/data/api";
 import {log} from "application/utill";
 import {ForecastApiResponse} from "application/data/api/forecast/ForecastApiResponse";
-import {WeatherDisplay} from "application/view/components/WeatherDisplayComponent";
+import {WeatherDisplay} from "application/view/components/WeatherDisplay";
 
 
 interface IForecastPageState {

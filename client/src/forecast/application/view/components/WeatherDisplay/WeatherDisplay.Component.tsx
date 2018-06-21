@@ -1,11 +1,13 @@
 import * as React from "react";
 import {PureComponent} from "react";
 
-import {Col, Row} from "react-bootstrap";
+import {Col, Grid, Row} from "react-bootstrap";
 
 import {ForecastApiResponse} from "application/data/api/forecast/ForecastApiResponse";
+import {WeatherMap} from "application/view/components/WeatherMap";
 
 import "./WeatherDisplay.Style.scss";
+
 
 interface IWeatherDisplayProps {
   city: string;
@@ -29,20 +31,27 @@ export class WeatherDisplay extends PureComponent<IWeatherDisplayProps> {
     }
 
     return (
-      <Row className={"weather-display-forecast"}>
+      <Grid fluid className={"weather-display-forecast"}>
 
-        <Col xs={3}>
+        <Row className={"weather-display-weather-container"}>
+          <Col xs={3}>
 
-          <b>City:</b> {forecast.city} <br/>
-          <b>Country:</b> {forecast.country}
+            <b>City:</b> {forecast.city} <br/>
+            <b>Country:</b> {forecast.country}
 
-        </Col>
+          </Col>
 
-        <Col xs={9}>
-          1233
-        </Col>
+          <Col xs={9}>
+            1233
+          </Col>
 
-      </Row>
+        </Row>
+
+        <Row className={"weather-display-map-container"}>
+          {React.createElement(WeatherMap, {coord: forecast.coord} as any)}
+        </Row>
+
+      </Grid>
     );
   }
 
