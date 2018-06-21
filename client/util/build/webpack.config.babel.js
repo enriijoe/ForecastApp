@@ -23,7 +23,23 @@ module.exports = {
         query: {
           configFileName: path.resolve("src/forecast/tsconfig.json")
         }
-      }
+      }, {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader"
+          }, {
+            loader: "css-loader"
+          }, {
+            loader: "sass-loader"
+          }
+        ]
+      }, {
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      use: [
+        'file-loader',
+      ],
+    }
     ]
   },
   plugins: [

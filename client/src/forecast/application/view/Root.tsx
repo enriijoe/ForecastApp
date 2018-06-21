@@ -1,10 +1,10 @@
 import * as React from "react";
-import {Component} from "react";
+import {PureComponent} from "react";
 
 import {Router} from "application/view/router/Router";
 import {log} from "application/utill";
 
-export class Root extends Component<null, null> {
+export class Root extends PureComponent<null, null> {
 
   public constructor(props: any) {
     super(props);
