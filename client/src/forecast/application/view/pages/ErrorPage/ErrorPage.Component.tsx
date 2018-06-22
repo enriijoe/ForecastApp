@@ -10,7 +10,11 @@ const cloudImg = require("assets/img/cloud.png");
 
 import "./ErrorPage.Style.scss";
 
-export class ErrorPage extends PureComponent<null, null> {
+export class ErrorPage extends PureComponent<any, null> {
+
+  public componentWillMount(): void {
+   this.replaceWrongPathToErrorPage();
+  }
 
   public render(): JSX.Element {
     return (
@@ -43,6 +47,12 @@ export class ErrorPage extends PureComponent<null, null> {
 
       </GeneralLayout>
     );
+  }
+
+  private replaceWrongPathToErrorPage(): void {
+    if (this.props.history.path !== "/error") {
+      this.props.history.replace("/error");
+    }
   }
 
 }
