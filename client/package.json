@@ -1,14 +1,19 @@
 {
   "name": "forecast",
   "version": "1.0.0",
-  "description": "---",
-  "main": "main.js",
+  "description": "lightIT forecast app",
+  "main": "src/forecast/application/main.ts",
   "scripts": {
-    "start": "NODE_ENV=production npx webpack-dev-server --content-base ./target --no-inline --config ./util/build/webpack.config.babel.js",
-    "start:dev": "NODE_ENV=development npx webpack-dev-server --content-base ./target --no-inline --config ./util/build/webpack.config.babel.js",
+    "==========================================================================": "===================================",
+    "start": "NODE_ENV=production npx webpack-dev-server --content-base ./target --no-inline --config ./tool/build/config/webpack.config.babel.js",
+    "start:dev": "NODE_ENV=development npx webpack-dev-server --content-base ./target --no-inline --config ./tool/build/config/webpack.config.babel.js",
+    "===================================": "==========================================================================",
     "build": "NODE_ENV=production npm run build-client:webpack",
     "build:dev": "NODE_ENV=development npm run build-client:webpack",
-    "build-client:webpack": "npx babel-node ./util/build/build.js"
+    "====================================": "=========================================================================",
+    "build-client:webpack": "npx babel-node ./tool/build/build.js",
+    "=================================": "============================================================================",
+    "lint": "npx tslint --project ./src/forecast/"
   },
   "babel": {
     "minified": true,

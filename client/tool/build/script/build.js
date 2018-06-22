@@ -1,5 +1,5 @@
 import Webpack from 'webpack';
-import webpackConfig from "./webpack.config.babel";
+import webpackConfig from "../config/webpack.config.babel";
 
 
 export class ClientBuilder {

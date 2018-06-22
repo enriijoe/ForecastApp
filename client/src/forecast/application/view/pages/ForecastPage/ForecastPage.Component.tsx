@@ -1,7 +1,7 @@
 import * as React from "react";
 import {PureComponent} from "react";
 
-import {Button, Clearfix, Col, Glyphicon, Grid, Row} from "react-bootstrap";
+import {Button, Col, Glyphicon, Grid, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {GeneralLayout} from "application/view/layout/general/GeneralLayout";
 import {WeatherSearchInput} from "application/view/components/weather_search/WeatherSearchInput/WeatherSearchInput.Component";
@@ -23,7 +23,7 @@ export class ForecastPage extends PureComponent<any, IForecastPageState> {
 
   private getSearchedCity(): string {
     const params: URLSearchParams = new URLSearchParams(this.props.location.search);
-    return params.get('city');
+    return params.get("city");
   }
 
   public readonly state: IForecastPageState = {
@@ -32,9 +32,12 @@ export class ForecastPage extends PureComponent<any, IForecastPageState> {
   };
 
   public componentWillMount() {
-    if(WeatherSearchInput.isValidCity(this.getSearchedCity()))
-    this.loadWeatherDetails()
-      .then(() => {});
+    if (WeatherSearchInput.isValidCity(this.getSearchedCity())) {
+      this.loadWeatherDetails()
+      .then();
+    } else {
+      this.props.history.replace("/error");
+    }
   }
 
   public componentDidUpdate(prevProps: any, prevState: IForecastPageState) {

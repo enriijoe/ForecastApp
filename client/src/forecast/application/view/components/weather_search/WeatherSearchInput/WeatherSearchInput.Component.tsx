@@ -1,52 +1,38 @@
 import * as React from "react";
 import {Component} from "react";
 
+import {log} from "application/utill";
 import {FormControl, FormGroup, Glyphicon, Grid, InputGroup} from "react-bootstrap";
-import {log} from "application/utill/index";
 
 import "./WeatherSearchInput.Style.scss";
 
 interface IWeatherSearchInputProps {
-  onRedirectRequest: (url: string) => void
+  onRedirectRequest: (url: string) => void;
 }
 
 interface IWeatherSearchInputState {
   value: string;
+  hasError: boolean;
 }
 
 export class WeatherSearchInput extends Component<IWeatherSearchInputProps, IWeatherSearchInputState> {
 
   public static isValidCity(cityName: string): boolean {
-    return cityName !== "";
+    return WeatherSearchInput.validCityNameRegex.test(cityName) && cityName.trim() !== "";
   }
+
+  private static readonly validCityNameRegex: RegExp = /^[a-z ,.'-]{2,15}$/i;
 
   public readonly state: IWeatherSearchInputState = {
-    value: "",
+    hasError: false,
+    value: ""
   };
-
-  private navigateToSearchPage(): void {
-    log.info("Navigating to forecast page...");
-
-    if(WeatherSearchInput.isValidCity(this.state.value)) {
-      this.props.onRedirectRequest(`/forecast?city=${this.state.value}`)
-    }
-  }
-
-  private handleEnterKeypress(keyCode: number) {
-    if(keyCode === 13) {
-      this.navigateToSearchPage();
-    }
-  }
-
-  private handleInputChange(value: string): void {
-    this.setState(Object.assign({}, this.state, {value}));
-  }
 
   public render(): JSX.Element {
     return (
     <Grid className={"weather-search-form"} fluid>
 
-      <FormGroup onKeyUp={(e: any) => this.handleEnterKeypress(e.keyCode)}>
+      <FormGroup onKeyUp={(e: any) => this.handleEnterKeyPress(e.keyCode)} validationState={this.state.hasError ? "error" : null}>
 
         <InputGroup>
 
@@ -61,6 +47,23 @@ export class WeatherSearchInput extends Component<IWeatherSearchInputProps, IWea
 
     </Grid>
     );
+  }
+
+  private navigateToSearchPage(): void {
+    if (!this.state.hasError && this.state.value.trim() !== "") {
+      log.info("Navigating to forecast page...");
+      this.props.onRedirectRequest(`/forecast?city=${this.state.value}`);
+    }
+  }
+
+  private handleEnterKeyPress(keyCode: number) {
+    if (keyCode === 13) {
+      this.navigateToSearchPage();
+    }
+  }
+
+  private handleInputChange(value: string): void {
+    this.setState(Object.assign({}, this.state, {value, hasError: !WeatherSearchInput.isValidCity(value)}));
   }
 
 }
