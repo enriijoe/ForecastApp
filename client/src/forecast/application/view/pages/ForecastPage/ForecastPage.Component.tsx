@@ -3,15 +3,15 @@ import {PureComponent} from "react";
 
 import {Button, Clearfix, Col, Glyphicon, Grid, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import {GeneralLayout} from "application/view/layout/GeneralLayout";
-import {WeatherSearchInput} from "application/view/components/WeatherSearchInput/WeatherSearchInput.Component";
+import {GeneralLayout} from "application/view/layout/general/GeneralLayout";
+import {WeatherSearchInput} from "application/view/components/weather_search/WeatherSearchInput/WeatherSearchInput.Component";
 
 import "./ForecastPage.Style.scss";
 import {RingLoader} from "react-spinners";
 import {forecastApiManager} from "application/data/api";
 import {log} from "application/utill";
 import {ForecastApiResponse} from "application/data/api/forecast/ForecastApiResponse";
-import {WeatherDisplay} from "application/view/components/WeatherDisplay";
+import {WeatherDisplay} from "application/view/components/weather_display/WeatherDisplay";
 
 
 interface IForecastPageState {

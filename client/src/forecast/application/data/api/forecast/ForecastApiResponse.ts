@@ -19,7 +19,7 @@ export class ForecastApiResponse {
     this.city = rawResponse.city.name;
     this.country = rawResponse.city.country;
     this.coord = rawResponse.city.coord;
-    this.forecast = [];
+    this.forecast = rawResponse.list;
   }
 
 }

@@ -2,8 +2,8 @@ import * as React from "react";
 import {PureComponent} from "react";
 
 import {Button, Col, Grid, Image, Row} from "react-bootstrap";
-import {GeneralLayout} from "application/view/layout/GeneralLayout";
-import {WeatherSearchInput} from "application/view/components/WeatherSearchInput/WeatherSearchInput.Component";
+import {GeneralLayout} from "application/view/layout/general/GeneralLayout";
+import {WeatherSearchInput} from "application/view/components/weather_search/WeatherSearchInput/WeatherSearchInput.Component";
 
 import "./IndexPage.Style.scss";
 

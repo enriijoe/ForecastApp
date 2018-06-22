@@ -2,7 +2,7 @@ import * as React from "react";
 import {Component} from "react";
 
 import {FormControl, FormGroup, Glyphicon, Grid, InputGroup} from "react-bootstrap";
-import {log} from "application/utill";
+import {log} from "application/utill/index";
 
 import "./WeatherSearchInput.Style.scss";
 
@@ -32,6 +32,12 @@ export class WeatherSearchInput extends Component<IWeatherSearchInputProps, IWea
     }
   }
 
+  private handleEnterKeypress(keyCode: number) {
+    if(keyCode === 13) {
+      this.navigateToSearchPage();
+    }
+  }
+
   private handleInputChange(value: string): void {
     this.setState(Object.assign({}, this.state, {value}));
   }
@@ -40,7 +46,7 @@ export class WeatherSearchInput extends Component<IWeatherSearchInputProps, IWea
     return (
     <Grid className={"weather-search-form"} fluid>
 
-      <FormGroup>
+      <FormGroup onKeyUp={(e: any) => this.handleEnterKeypress(e.keyCode)}>
 
         <InputGroup>
 

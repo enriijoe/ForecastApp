@@ -2,7 +2,7 @@ import * as React from "react";
 import {PureComponent} from "react";
 
 import {Button, Col, Glyphicon, Grid, Image, Row} from "react-bootstrap";
-import {GeneralLayout} from "application/view/layout/GeneralLayout";
+import {GeneralLayout} from "application/view/layout/general/GeneralLayout";
 
 import "./ErrorPage.Style.scss";
 import {Link} from "react-router-dom";
